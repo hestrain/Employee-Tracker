@@ -50,6 +50,13 @@
 1. Clone the repo from github (link in the contact section) 
 2. Run "node index.js" in the terminal
 
+Below are Videos and Photos of the app in action.
+
+  [![Video of terminal usage](./assets/employeetrackerthumb.png)](https://youtu.be/bhVbhZQIKEk)
+
+  ![View all employees](./assets/viewAllEmployees.png)]
+  [![More views](./assets/more%20views.png)]
+
 
 **Additional Usage Info:** 
    n/a
