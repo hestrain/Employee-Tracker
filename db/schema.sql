@@ -25,5 +25,10 @@ CREATE TABLE employee (
   job_id INTEGER NOT NULL,
     FOREIGN KEY (job_id)
     REFERENCES job(job_id)
-    ON DELETE CASCADE
+    ON DELETE CASCADE,
+  manager_id INTEGER,
+  CONSTRAINT fk_manager 
+    FOREIGN KEY( manager_id) 
+    REFERENCES employee(employee_id) 
+    ON DELETE SET NULL
 );

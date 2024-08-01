@@ -17,19 +17,20 @@ class DB {
   // Find all employees, join with jobs and departments to display their jobs, salaries, departments
    findAllEmployees() {
     return this.query(`
-        SELECT employee.employee_id, employee.first_name, employee.last_name, employee.job_id, job.title, job.salary, job.department_id, department.department_name
+        SELECT employee.employee_id, employee.first_name, employee.last_name, employee.job_id, employee.manager_id, job.title, job.salary, job.department_id, department.department_name
         FROM employee
         INNER JOIN job ON employee.job_id = job.job_id
         INNER JOIN department on job.department_id = department.department_id;`);
   }
 
-//   // Find all employees except the given employee id
-//   findAllPossibleManagers(employeeId) {
-//     return this.query(
-//       'SELECT id, first_name, last_name FROM employee WHERE id != $1',
-//       [employeeId]
-//     );
-//   }
+  //NOT CURRENTLY IN USE, TO WORK ON LATER
+  // Find all employees except the given employee id
+  findAllPossibleManagers(employeeId) {
+    return this.query(
+      'SELECT employee_id, first_name, last_name FROM employee WHERE employee_id != $1',
+      [employeeId]
+    );
+  }
 
   // Create a new employee
   createEmployee(employee) {
@@ -53,13 +54,14 @@ class DB {
     ]);
   }
 
-//   // Update the given employee's manager
-//   updateEmployeeManager(employeeId, managerId) {
-//     return this.query('UPDATE employee SET manager_id = $1 WHERE id = $2', [
-//       managerId,
-//       employeeId,
-//     ]);
-//   }
+  //INCOMPLETE
+  // Update the given employee's manager
+  updateEmployeeManager(employeeId, managerId) {
+    return this.query('UPDATE employee SET manager_id = $1 WHERE employee_id = $2', [
+      managerId,
+      employeeId,
+    ]);
+  }
 
   // Find all jobs, join with departments to display the department name
   findAlljobs() {
@@ -88,13 +90,6 @@ LEFT JOIN department on job.department_id = department.department_id;`    );
     return this.query('SELECT department.department_id, department.department_name FROM department;');
   }
 
-  // Find all departments, join with employees and jobs and sum up utilized department budget
-  viewDepartmentBudgets() {
-    return this.query(
-      'SELECT department.department_id, department.department_name, SUM(job.salary) AS utilized_budget FROM employee LEFT JOIN job on employee.job_id = job.job_id LEFT JOIN department on job.department_id = department.department_id GROUP BY department.department_id, department.department_name;'
-    );
-  }
-
   // Create a new department
   createDepartment(department_name) {
     return this.query('INSERT INTO department (department_name) VALUES ($1)', [
@@ -115,13 +110,14 @@ LEFT JOIN department on job.department_id = department.department_id;`    );
     );
   }
 
-//   // Find all employees by manager, join with departments and jobs to display titles and department names
-//   findAllEmployeesByManager(managerId) {
-//     return this.query(
-//       'SELECT employee.employee_id, employee.first_name, employee.last_name, department.department_name AS department, job.title FROM employee LEFT JOIN job on job.job_id = employee.job_id LEFT JOIN department ON department.department_id = job.department_id WHERE manager_id = $1;',
-//       [managerId]
-//     );
-//   }
+    //INCOMPLETE
+  // Find all employees by manager, join with departments and jobs to display titles and department names
+  findAllEmployeesByManager(managerId) {
+    return this.query(
+      'SELECT employee.employee_id, employee.first_name, employee.last_name, department.department_name AS department, job.title FROM employee LEFT JOIN job on job.job_id = employee.job_id LEFT JOIN department ON department.department_id = job.department_id WHERE manager_id = $1;',
+      [managerId]
+    );
+  }
 }
 
 module.exports = new DB();
