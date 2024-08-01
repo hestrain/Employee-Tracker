@@ -52,10 +52,12 @@
 
 Below are Videos and Photos of the app in action.
 
+### Video...
   [![Video of terminal usage](./assets/employeetrackerthumb.png)](https://youtu.be/bhVbhZQIKEk)
 
-  [![View all employees](./assets/viewAllEmployees.png)]
-  [![More views](./assets/more%20views.png)]
+### Photos...
+  ![View all employees](./assets/viewAllEmployees.png)
+  ![More views](./assets/more%20views.png)
 
 
 **Additional Usage Info:** 
