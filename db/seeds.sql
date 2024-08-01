@@ -12,7 +12,7 @@ VALUES ('First House'),
 INSERT INTO job (title, salary, department_id)
 VALUES 
 ('Emperor', 1000000000, 1), 
-('Lyctor', 500000, 2), 
+('Lyctor', 500000, 1), 
 ('Templar of the White Glass', 40000, 8),
 ('Ranked First Lieutenant of the Cohort', 40000, 2),
 ('Prince of Ida', 40000, 3),

@@ -15,6 +15,7 @@ CREATE TABLE job (
   salary DECIMAL NOT NULL,
     FOREIGN KEY (department_id)
     REFERENCES department(department_id)
+        ON DELETE CASCADE
 );
 
 CREATE TABLE employee (
