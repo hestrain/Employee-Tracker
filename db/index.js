@@ -15,7 +15,7 @@ class DB {
   }
 
   // Find all employees, join with jobs and departments to display their jobs, salaries, departments
-   findAllEmployees() {
+   findEmployees() {
     return this.query(`
         SELECT employee.employee_id, employee.first_name, employee.last_name, employee.job_id, employee.manager_id, job.title, job.salary, job.department_id, department.department_name
         FROM employee
@@ -25,7 +25,7 @@ class DB {
 
   //NOT CURRENTLY IN USE, TO WORK ON LATER
   // Find all employees except the given employee id
-  findAllPossibleManagers(employeeId) {
+  findPossibleManagers(employeeId) {
     return this.query(
       'SELECT employee_id, first_name, last_name FROM employee WHERE employee_id != $1',
       [employeeId]
@@ -47,7 +47,7 @@ class DB {
   }
 
   // Update the given employee's job
-  updateEmployeejob(employeeId, jobId) {
+  updateEmployeeJob(employeeId, jobId) {
     return this.query('UPDATE employee SET job_id = $1 WHERE employee_id = $2', [
       jobId,
       employeeId,
@@ -64,7 +64,7 @@ class DB {
   }
 
   // Find all jobs, join with departments to display the department name
-  findAlljobs() {
+  findJobs() {
     return this.query(
 `SELECT job.job_id, job.title, department.department_name 
 AS department, job.salary FROM job 
@@ -72,7 +72,7 @@ LEFT JOIN department on job.department_id = department.department_id;`    );
   }
 
   // Create a new job
-  createjob(job) {
+  createJob(job) {
     const { title, salary, department_id } = job;
     return this.query(
       'INSERT INTO job (title, salary, department_id) VALUES ($1, $2, $3)',
@@ -81,12 +81,12 @@ LEFT JOIN department on job.department_id = department.department_id;`    );
   }
 
   // Remove a job from the db
-  removejob(jobId) {
+  removeJob(jobId) {
     return this.query('DELETE FROM job WHERE job_id = $1', [jobId]);
   }
 
   // Find all departments
-  findAllDepartments() {
+  findDepartments() {
     return this.query('SELECT department.department_id, department.department_name FROM department;');
   }
 
@@ -103,7 +103,7 @@ LEFT JOIN department on job.department_id = department.department_id;`    );
   }
 
   // Find all employees in a given department, join with jobs to display job titles
-  findAllEmployeesByDepartment(departmentId) {
+  findEmployeesByDepartment(departmentId) {
     return this.query(
       'SELECT employee.employee_id, employee.first_name, employee.last_name, job.title FROM employee LEFT JOIN job on employee.job_id = job.job_id LEFT JOIN department on job.department_id = department.department_id WHERE department.department_id = $1;',
       [departmentId]
@@ -112,7 +112,7 @@ LEFT JOIN department on job.department_id = department.department_id;`    );
 
     //INCOMPLETE
   // Find all employees by manager, join with departments and jobs to display titles and department names
-  findAllEmployeesByManager(managerId) {
+  findEmployeesByManager(managerId) {
     return this.query(
       'SELECT employee.employee_id, employee.first_name, employee.last_name, department.department_name AS department, job.title FROM employee LEFT JOIN job on job.job_id = employee.job_id LEFT JOIN department ON department.department_id = job.department_id WHERE manager_id = $1;',
       [managerId]
