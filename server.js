@@ -1,33 +1,5 @@
-//all code below has been pasted from SQL Activity 23/24
+const pool = require('./connection.js');
 
-const express = require('express');
-// Import and require Pool (node-postgres)
-// We'll be creating a Connection Pool. Read up on the benefits here: https://node-postgres.com/features/pooling
-const { Pool } = require('pg');
-
-const PORT = process.env.PORT || 3001;
-const app = express();
-
-// Express middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-
-// Connect to database
-const pool = new Pool(
-  {
-    // TODO: Enter PostgreSQL username
-    user: 'postgres',
-    // TODO: Enter PostgreSQL password
-    password: 'rootroot',
-    host: 'localhost',
-    database: 'employee_tracker_db'
-  },
-  console.log(`Connected to the employee_tracker_db database.`)
-)
-
-pool.connect();
-
-let deletedRow = 2;
 
 pool.query(`DELETE FROM favorite_books WHERE id = $1`, [deletedRow], (err, {rows}) => {
   if (err) {

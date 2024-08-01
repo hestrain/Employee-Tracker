@@ -1,9 +1,58 @@
-INSERT INTO favorite_books (book_name)
-VALUES ('The Great Gatsby'),
-       ('Huckleberry Finn'),
-       ('100 Years of Solitude'),
-       ('Things Fall Apart'),
-       ('Crime and Punishment'),
-       ('Moby Dick'),
-       ('Decameron');
-       
+INSERT INTO department (department_name)
+VALUES ('First House'), 
+('Second House'),
+('Third House'),
+('Fourth House'),
+('Fifth House'),
+('Sixth House'),
+('Seventh House'),
+('Eighth House'),
+('Ninth House');
+
+INSERT INTO job (title, salary, department_id)
+VALUES 
+('Emperor', 1000000000, 1), 
+('Lyctor', 500000, 2), 
+('Templar of the White Glass', 40000, 8),
+('Ranked First Lieutenant of the Cohort', 40000, 2),
+('Prince of Ida', 40000, 3),
+('Knight of Tisis', 40000, 4),
+('Seneschal of the Koniortos Court', 40000, 5),
+('Wardens Hand of the Library', 40000, 6),
+('Knight of Rhodes', 40000, 7),
+('Indentured Servant of the House of the Ninth', 40000, 9),
+('Ranked Captain of the Cohort', 100000, 2),
+('Crown Princess of Ida', 100000, 3),
+('Baron of Tisis', 100000, 4),
+('Lady of the Koniortos Court', 100000, 5),
+('Master Warden of the Library', 100000, 6),
+('Duchess of Rhodes', 100000, 7),
+('Master Templar of the White Glass', 100000, 8),
+('Reverend Daughter of Drearburh', 100000, 9);
+
+INSERT INTO employee (first_name, last_name, job_id)
+VALUES ('John', 'Gaius', 1),
+('Judith', 'Deuteros', 11),
+('Marta', 'Dyas', 4),
+('Coronabeth', 'Tridentarius', 12),
+('Ianthe', 'Tridentarius', 12),
+('Naberius', 'Tern',5),
+('Isaac', 'Tettares', 13),
+('Jeannemary', 'Chatur', 6),
+('Abigail', 'Pent', 14),
+('Magnus', 'Quinn', 7),
+('Palamedes', 'Sextus', 15),
+('Camilla', 'Hect', 8),
+('Dulcinea', 'Septimus', 16),
+('Protesilaus', 'Ebdoma', 9),
+('Silas', 'Octakiseron', 17),
+('Colm', 'Asht', 3),
+('Harrowhark', 'Nonagesimus', 18),
+('Gideon', 'Nav', 10),
+('Augustine', 'the First', 2),
+('Mercymorn', 'the First', 2),
+('Gideon', 'the First', 2),
+('Cassiopeia', 'the First', 2),
+('Cyrus', 'the First', 2),
+('Ulysses', 'the First', 2),
+('Cytherea', 'the First', 2);
