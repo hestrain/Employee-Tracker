@@ -54,7 +54,6 @@ class DB {
     ]);
   }
 
-  //INCOMPLETE
   // Update the given employee's manager
   updateEmployeeManager(employeeId, managerId) {
     return this.query('UPDATE employee SET manager_id = $1 WHERE employee_id = $2', [

@@ -198,7 +198,7 @@ function viewEmployeesByManager() {
       {
         type: "list",
         name: "managerId",
-        message: "Which manager do you want to see direct reports for?",
+        message: "Which manager do you want to see the employees for?",
         choices: managerChoices,
       },
     ])

@@ -1,3 +1,4 @@
+--insert all department names--
 INSERT INTO department (department_name)
 VALUES ('First House'), 
 ('Second House'),
@@ -9,6 +10,7 @@ VALUES ('First House'),
 ('Eighth House'),
 ('Ninth House');
 
+--inset all job titles, salaries, and department ids--
 INSERT INTO job (title, salary, department_id)
 VALUES 
 ('Emperor', 1000000000, 1), 
@@ -30,6 +32,7 @@ VALUES
 ('Master Templar of the White Glass', 100000, 8),
 ('Reverend Daughter of Drearburh', 100000, 9);
 
+--insert all employee info--
 INSERT INTO employee (first_name, last_name, job_id, manager_id)
 VALUES ('John', 'Gaius', 1, NULL),
 ('Judith', 'Deuteros', 11, NULL),
